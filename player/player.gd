@@ -6,7 +6,7 @@ const AIR_FRICTION: float = FRICTION * 0.6
 const GRAVITY: float = 490
 const JUMP_FORCE: float = -200
 var input_vector: Vector2 = Vector2.ZERO
-var jump_pressed: bool = false
+var jump: bool = false
 
 func _ready() -> void:
 	pass
@@ -14,10 +14,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_handle_movment_input()
-	
 
 
 # Specifically movement
 func _handle_movment_input() -> void:
 	input_vector.x = Input.get_axis("move_left", "move_right")
-	jump_pressed = true
+	jump = true
