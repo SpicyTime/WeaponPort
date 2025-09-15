@@ -1,0 +1,17 @@
+/.import/
+/.godot/
+/export/
+/.mono/
+/bin/
+*.godot/
+*.import/
+*.uid
+.settings/
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+Thumbs.db
+.DS_Store
+*.swp
+*.swo
