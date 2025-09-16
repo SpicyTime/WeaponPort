@@ -1,16 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://ta2b3anhcjnt"]
+[gd_scene load_steps=8 format=3 uid="uid://ta2b3anhcjnt"]
 
 [ext_resource type="Script" uid="uid://deh7f0j28pf1v" path="res://player/player.gd" id="1_l8h54"]
+[ext_resource type="Texture2D" uid="uid://duunei1qh6n2x" path="res://icon.svg" id="2_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://5xoiw4cnjmck" path="res://state_machine/state_machine.tscn" id="3_g6k8r"]
+[ext_resource type="PackedScene" uid="uid://s7ok5xja3ic6" path="res://state_machine/states/idle.tscn" id="4_boad6"]
+[ext_resource type="PackedScene" uid="uid://yp4l3ax7gebe" path="res://state_machine/states/run.tscn" id="5_rgyib"]
+[ext_resource type="PackedScene" uid="uid://b8nhyfjrbxw6t" path="res://state_machine/states/jump.tscn" id="6_g6k8r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gpxt"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kwoj6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjkh3"]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_l8h54")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5gpxt")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qjkh3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_kwoj6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qjkh3")
+
+[node name="StateMachine" parent="." instance=ExtResource("3_g6k8r")]
+
+[node name="Idle" parent="StateMachine" instance=ExtResource("4_boad6")]
+
+[node name="Run" parent="StateMachine" instance=ExtResource("5_rgyib")]
+max_speed = 800.0
+friction = 1000.0
+acceleration = 1000.0
+
+[node name="Jump" parent="StateMachine" instance=ExtResource("6_g6k8r")]

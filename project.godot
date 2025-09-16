@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="WeaponPort"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="uid://eqbl8sp00dlk"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ConstantManager="*res://main/autoloads/constant_manager.gd"
+SignalManager="*res://main/autoloads/signal_manager.gd"
 
 [input]
 
