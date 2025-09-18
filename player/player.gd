@@ -15,6 +15,8 @@ func _physics_process(delta: float) -> void:
 	_handle_movment_input()
 	state_machine.update(delta)
 	move_and_slide()
+
+
 # Specifically movement
 func _handle_movment_input() -> void:
 	direction_vector.x = Input.get_axis("move_left", "move_right")
